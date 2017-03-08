@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block head_scripts %}
+    <script src="//www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="//www.amcharts.com/lib/3/serial.js"></script>
+    <script src="//www.amcharts.com/lib/3/themes/light.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron">
+                    <div class="col-md-3" style="padding-bottom: 10px!important;">
+                        <select class="form-control" id="select_group">
+                            {% for group in groups %}
+                                <option value="{{ forloop.counter }}" data-val="{{ group.value }}"
+                                        {% if forloop.first %}selected{% endif %}>
+                                    {{ group.name }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div id="chartdiv" style="min-height: 400px!important; width: 100%!important;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

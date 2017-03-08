@@ -1,0 +1,6 @@
+static
+.idea
+.env
+*.pyc
+*~
+*.pid
